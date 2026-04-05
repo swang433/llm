@@ -111,7 +111,6 @@ class BPETokenizer(object):
         args: text for encoding, possibly enabling special tokens
         return: list of token ids 
         '''
-        import re
         token_ids = []
         
         if allowed_special is not None and len(allowed_special) > 0:
