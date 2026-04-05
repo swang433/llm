@@ -1,6 +1,13 @@
 import re
 import yaml
 
+'''
+this generic trivial tokenizer is not in active use 
+as most GPT architectures use byte-pair encoding
+OOV tokens are also handled via len(encoding) instead of
+constructing a set of allowed special chars and len(unique_chars)
+'''
+
 with open('config.yaml') as file: 
     config = yaml.safe_load(file)
 
@@ -32,4 +39,4 @@ class SimpleTokenizer(object):
         return encoding
 
     def decode(self, encoding): 
-        return [self.inv_vocab[num] for num in encoding]
+        return ''.join([self.inv_vocab[num] for num in encoding])
